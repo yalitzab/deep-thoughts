@@ -16,6 +16,7 @@ const resolvers = {
         .populate('friends')
         .populate('thoughts');
     },
+    // get thoughts by username
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Thought.find(params).sort({ createdAt: -1 });
